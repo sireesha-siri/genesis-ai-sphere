@@ -37,8 +37,8 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
           <a href="#home" className="flex items-center">
-            <h1 className="text-xl md:text-2xl font-bold text-gradient">
-              Genesis AI
+            <h1 className="text-xl md:text-2xl font-bold text-gradient font-orbitron tracking-wider">
+              SiriNeura
             </h1>
           </a>
 
@@ -49,7 +49,7 @@ const Navbar = () => {
                 <li key={link.text}>
                   <a 
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors duration-300"
+                    className="text-gray-300 hover:text-white transition-colors duration-300 font-rajdhani text-lg tracking-wide"
                   >
                     {link.text}
                   </a>
@@ -64,23 +64,23 @@ const Navbar = () => {
               size="icon" 
               variant="ghost" 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-white"
+              className="text-white p-2"
               aria-label="Toggle mobile menu"
             >
-              <Menu />
+              <Menu className="h-6 w-6" />
             </Button>
           </div>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-2 py-2 rounded-md bg-black/80 backdrop-blur-md border border-gray-800">
-            <ul className="flex flex-col space-y-2">
+          <div className="md:hidden mt-2 py-2 rounded-md glass-enhanced neon-glow">
+            <ul className="flex flex-col space-y-4 p-4">
               {navLinks.map((link) => (
                 <li key={link.text}>
                   <a 
                     href={link.href}
-                    className="block px-4 py-2 text-gray-300 hover:text-white transition-colors duration-300"
+                    className="block px-4 py-3 text-gray-300 hover:text-white transition-colors duration-300 font-rajdhani text-lg tracking-wide"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.text}

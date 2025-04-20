@@ -19,6 +19,11 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				orbitron: ['Orbitron', 'sans-serif'],
+				rajdhani: ['Rajdhani', 'sans-serif'],
+				inter: ['Inter', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -95,6 +100,14 @@ export default {
 					'0%': { backgroundPosition: '-200% 0' },
 					'100%': { backgroundPosition: '200% 0' },
 				},
+				slideInLeft: {
+					'0%': { transform: 'translateX(-30px)', opacity: '0' },
+					'100%': { transform: 'translateX(0)', opacity: '1' },
+				},
+				slideInRight: {
+					'0%': { transform: 'translateX(30px)', opacity: '0' },
+					'100%': { transform: 'translateX(0)', opacity: '1' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -104,6 +117,8 @@ export default {
 				'float': 'float 3s ease-in-out infinite',
 				'pulse': 'pulse 2s ease-in-out infinite',
 				'shimmer': 'shimmer 2s linear infinite',
+				'slideInLeft': 'slideInLeft 0.5s ease-out forwards',
+				'slideInRight': 'slideInRight 0.5s ease-out forwards',
 			},
 			backgroundImage: {
 				'hero-pattern': 'linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80")',

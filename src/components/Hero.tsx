@@ -1,10 +1,44 @@
-import { useState, useEffect } from 'react';
+
+import { useState, useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/use-toast";
+import TerminalAnimation from './TerminalAnimation';
 
 const Hero = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [typedText, setTypedText] = useState('');
+  const fullText = "Empowering the Future with AI...";
+  const typingSpeed = 100; // milliseconds per character
+  const typingRef = useRef<number | null>(null);
+  
+  const terminalLines = [
+    "Initializing neural network...",
+    "Processing data inputs...",
+    "Analyzing pattern recognition algorithms...",
+    "Optimizing machine learning models...",
+    "Generating AI insights...",
+    "AI analysis complete. Ready for deployment."
+  ];
+  
+  // Typing animation effect
+  useEffect(() => {
+    let i = 0;
+    
+    const typeWriter = () => {
+      if (i < fullText.length) {
+        setTypedText(fullText.substring(0, i + 1));
+        i++;
+        typingRef.current = window.setTimeout(typeWriter, typingSpeed);
+      }
+    };
+    
+    typingRef.current = window.setTimeout(typeWriter, typingSpeed);
+    
+    return () => {
+      if (typingRef.current) clearTimeout(typingRef.current);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,7 +58,7 @@ const Hero = () => {
       featuresSection.scrollIntoView({ behavior: 'smooth' });
     }
     toast({
-      title: "Welcome to Genesis AI",
+      title: "Welcome to SiriNeura",
       description: "Explore our cutting-edge AI technologies",
       duration: 3000,
     });
@@ -64,19 +98,19 @@ const Hero = () => {
           opacity: 1 - scrollProgress,
         }}
       >
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fadeIn">
-          <span className="text-gradient">Artificial Intelligence</span>
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fadeIn font-orbitron tracking-tight">
+          <span className="text-gradient">SiriNeura</span>
           <br />
-          <span className="text-white">Reimagined for the Future</span>
+          <span className="text-white inline-block">{typedText}<span className="animate-pulse">|</span></span>
         </h1>
         
-        <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 animate-fadeIn animate-delay-200">
+        <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 animate-fadeIn animate-delay-200 font-inter">
           Explore the cutting-edge AI technologies that are revolutionizing industries and transforming the way we interact with digital systems.
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fadeIn animate-delay-400">
           <Button 
-            className="glow-on-hover px-8 py-6 text-lg rounded-full bg-ai-purple hover:bg-ai-purple/90 text-white transform transition-all duration-300 hover:scale-105 active:scale-95"
+            className="glow-on-hover pulse-effect px-8 py-6 text-lg rounded-full bg-ai-purple hover:bg-ai-purple/90 text-white transform transition-all duration-300 hover:scale-105 active:scale-95 font-rajdhani tracking-wider"
             onClick={handleGetStarted}
           >
             Get Started
@@ -84,11 +118,26 @@ const Hero = () => {
           </Button>
           <Button 
             variant="outline" 
-            className="px-8 py-6 text-lg rounded-full border-white/20 text-white hover:bg-white/10 transform transition-all duration-300 hover:scale-105 active:scale-95"
+            className="px-8 py-6 text-lg rounded-full border-white/20 text-white hover:bg-white/10 transform transition-all duration-300 hover:scale-105 active:scale-95 font-rajdhani tracking-wider"
             onClick={handleLearnMore}
           >
             Learn More
           </Button>
+        </div>
+
+        {/* Live AI Insight Panel - Visual element */}
+        <div className="mt-16 max-w-md mx-auto glass-enhanced rounded-lg p-4 neon-glow hidden md:block">
+          <div className="text-left">
+            <div className="flex items-center mb-2">
+              <div className="flex space-x-1">
+                <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500"></div>
+              </div>
+              <span className="ml-2 text-xs text-gray-400 font-mono">sirineura_insight.sh</span>
+            </div>
+            <TerminalAnimation lines={terminalLines} typingSpeed={40} />
+          </div>
         </div>
 
         <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-ai-purple/20 blur-3xl animate-float"></div>
@@ -102,6 +151,13 @@ const Hero = () => {
         <div className="w-8 h-12 rounded-full border-2 border-white/30 flex justify-center">
           <div className="w-1 h-3 bg-white/80 rounded-full mt-2 animate-[float_1.5s_ease-in-out_infinite]"></div>
         </div>
+      </div>
+      
+      {/* Section Divider */}
+      <div className="section-divider">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="shape-fill"></path>
+        </svg>
       </div>
     </section>
   );

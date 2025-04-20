@@ -18,8 +18,9 @@ const ScrollReveal = () => {
     };
     
     window.addEventListener('scroll', revealOnScroll);
-    // Initial check
-    revealOnScroll();
+    
+    // Initial check to reveal elements that are already in view on page load
+    setTimeout(revealOnScroll, 300);
     
     return () => window.removeEventListener('scroll', revealOnScroll);
   }, []);

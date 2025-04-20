@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -77,6 +79,14 @@
   body {
     @apply bg-background text-foreground antialiased dark;
   }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-orbitron;
+  }
+  
+  p, span, div, a, button {
+    @apply font-inter;
+  }
 
   .glass-card {
     @apply bg-black/30 backdrop-blur-md border border-white/10 shadow-xl;
@@ -96,6 +106,28 @@
   
   .animate-delay-600 {
     animation-delay: 600ms;
+  }
+  
+  /* Neon glow effect */
+  .neon-glow {
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.5), 
+                0 0 20px rgba(139, 92, 246, 0.3), 
+                0 0 30px rgba(139, 92, 246, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .neon-glow:hover {
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.6), 
+                0 0 30px rgba(139, 92, 246, 0.4), 
+                0 0 45px rgba(139, 92, 246, 0.2);
+  }
+  
+  /* Enhanced glassmorphism */
+  .glass-enhanced {
+    background: rgba(18, 18, 23, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -133,6 +165,27 @@ html {
   100% {
     background-position: 0% 50%;
   }
+}
+
+/* Section dividers */
+.section-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.section-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 50px;
+}
+
+.section-divider .shape-fill {
+  fill: rgb(var(--background) / 95%);
 }
 
 /* Glowing effect for buttons */
@@ -179,4 +232,50 @@ html {
   0% { background-position: 0 0; }
   50% { background-position: 400% 0; }
   100% { background-position: 0 0; }
+}
+
+/* Pulse animation for buttons */
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(139, 92, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0);
+  }
+}
+
+.pulse-effect {
+  animation: pulse-animation 2s infinite;
+}
+
+/* Typing animation */
+.typing-animation {
+  overflow: hidden;
+  border-right: 2px solid rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: rgba(255, 255, 255, 0.75) }
+}
+
+/* Enhanced hover effects for cards */
+.hover-card-effect {
+  transition: all 0.3s ease;
+}
+
+.hover-card-effect:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.4);
 }

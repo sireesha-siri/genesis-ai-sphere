@@ -76,10 +76,10 @@ const Contact = () => {
 
       <div className="container mx-auto px-6">
         <div className="reveal text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-orbitron tracking-tight">
             Get in <span className="text-gradient">Touch</span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto font-inter">
             Interested in our AI solutions? Send us a message and our team will get back to you shortly.
           </p>
         </div>
@@ -88,11 +88,11 @@ const Contact = () => {
           <form 
             ref={formRef}
             onSubmit={handleSubmit}
-            className="reveal glass-card rounded-xl p-8 md:p-10"
+            className="reveal glass-enhanced rounded-xl p-8 md:p-10 neon-glow"
           >
             <div className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2 font-rajdhani tracking-wide">
                   Name
                 </label>
                 <input
@@ -101,13 +101,13 @@ const Contact = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
-                  className="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-ai-purple focus:border-transparent outline-none transition-all duration-200"
+                  className="w-full px-4 py-4 bg-black/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-ai-purple focus:border-transparent outline-none transition-all duration-200 font-inter"
                   placeholder="Your Name"
                 />
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2 font-rajdhani tracking-wide">
                   Email
                 </label>
                 <input
@@ -116,13 +116,13 @@ const Contact = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-ai-purple focus:border-transparent outline-none transition-all duration-200"
+                  className="w-full px-4 py-4 bg-black/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-ai-purple focus:border-transparent outline-none transition-all duration-200 font-inter"
                   placeholder="your@email.com"
                 />
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2 font-rajdhani tracking-wide">
                   Message
                 </label>
                 <textarea
@@ -131,7 +131,7 @@ const Contact = () => {
                   onChange={(e) => setMessage(e.target.value)}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-ai-purple focus:border-transparent outline-none transition-all duration-200 resize-none"
+                  className="w-full px-4 py-4 bg-black/50 border border-gray-700 rounded-lg focus:ring-2 focus:ring-ai-purple focus:border-transparent outline-none transition-all duration-200 resize-none font-inter"
                   placeholder="How can we help you?"
                 />
               </div>
@@ -140,7 +140,7 @@ const Contact = () => {
                 <Button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className="w-full py-6 glow-on-hover bg-gradient-ai hover:opacity-90 transition-opacity text-white font-medium rounded-lg"
+                  className="w-full py-6 glow-on-hover pulse-effect bg-gradient-ai hover:opacity-90 transition-opacity text-white font-rajdhani tracking-wider text-lg rounded-lg"
                 >
                   {isSubmitting ? (
                     <span className="flex items-center justify-center">
@@ -159,23 +159,23 @@ const Contact = () => {
           </form>
           
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
-            <div className="glass-card rounded-xl p-6 flex items-center">
+            <div className="glass-enhanced rounded-xl p-6 flex items-center hover-card-effect">
               <div className="w-12 h-12 rounded-lg bg-ai-purple/20 flex items-center justify-center mr-4">
                 <Mail className="w-6 h-6 text-ai-purple" />
               </div>
               <div>
-                <h3 className="text-lg font-medium mb-1">Email Us</h3>
-                <p className="text-gray-400">contact@genesisai.com</p>
+                <h3 className="text-lg font-medium mb-1 font-rajdhani tracking-wide">Email Us</h3>
+                <p className="text-gray-400 font-inter">contact@sirineura.com</p>
               </div>
             </div>
             
-            <div className="glass-card rounded-xl p-6 flex items-center">
+            <div className="glass-enhanced rounded-xl p-6 flex items-center hover-card-effect">
               <div className="w-12 h-12 rounded-lg bg-ai-blue/20 flex items-center justify-center mr-4">
                 <MessageSquare className="w-6 h-6 text-ai-blue" />
               </div>
               <div>
-                <h3 className="text-lg font-medium mb-1">Chat Support</h3>
-                <p className="text-gray-400">Available 24/7</p>
+                <h3 className="text-lg font-medium mb-1 font-rajdhani tracking-wide">Chat Support</h3>
+                <p className="text-gray-400 font-inter">Available 24/7</p>
               </div>
             </div>
           </div>

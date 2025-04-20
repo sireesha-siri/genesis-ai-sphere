@@ -102,10 +102,10 @@ const Features = () => {
           ref={(el) => (featuresRef.current[0] = el)}
           className="reveal text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-orbitron tracking-tight">
             Advanced <span className="text-gradient">AI Features</span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto font-inter">
             Our cutting-edge AI technologies offer a comprehensive suite of capabilities
             designed to transform your business operations and user experiences.
           </p>
@@ -119,24 +119,26 @@ const Features = () => {
                 <HoverCardTrigger asChild>
                   <div
                     ref={(el) => (featuresRef.current[index + 1] = el)}
-                    className="reveal glass-card rounded-xl p-6 transition-all duration-300 hover:translate-y-[-8px] hover:shadow-[0_10px_40px_-15px_rgba(139,92,246,0.5)] cursor-pointer hover:bg-black/40 border border-white/5 hover:border-white/20"
+                    className={`reveal glass-enhanced rounded-xl p-6 transition-all duration-300 hover-card-effect cursor-pointer border border-white/5 hover:border-white/20 ${
+                      index % 2 === 0 ? 'animate-slideInLeft' : 'animate-slideInRight'
+                    }`}
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <div className={`w-14 h-14 rounded-lg ${feature.bgColor} flex items-center justify-center mb-5 transition-transform group-hover:scale-110`}>
                       <Icon className={`w-7 h-7 ${feature.color}`} />
                     </div>
-                    <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                    <p className="text-gray-400">{feature.description}</p>
+                    <h3 className="text-xl font-semibold mb-3 font-rajdhani tracking-wide">{feature.title}</h3>
+                    <p className="text-gray-400 font-inter">{feature.description}</p>
                   </div>
                 </HoverCardTrigger>
-                <HoverCardContent className="glass-card border border-white/10 bg-black/80 backdrop-blur-xl text-white w-80">
+                <HoverCardContent className="glass-enhanced border border-white/10 bg-black/80 backdrop-blur-xl text-white w-80 neon-glow">
                   <div className="flex justify-between space-x-4">
                     <div className={`w-12 h-12 rounded-lg ${feature.bgColor} flex items-center justify-center`}>
                       <Icon className={`w-6 h-6 ${feature.color}`} />
                     </div>
                     <div className="space-y-1">
-                      <h4 className="text-sm font-semibold">{feature.title}</h4>
-                      <p className="text-xs text-gray-300">{feature.extendedDescription}</p>
+                      <h4 className="text-sm font-semibold font-rajdhani">{feature.title}</h4>
+                      <p className="text-xs text-gray-300 font-inter">{feature.extendedDescription}</p>
                     </div>
                   </div>
                 </HoverCardContent>
@@ -144,6 +146,13 @@ const Features = () => {
             );
           })}
         </div>
+      </div>
+      
+      {/* Section Divider */}
+      <div className="section-divider">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" className="shape-fill"></path>
+        </svg>
       </div>
     </section>
   );
