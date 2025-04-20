@@ -1,6 +1,6 @@
 
 import { useRef, useEffect } from 'react';
-import { Code, Robot, Brain, Search, Zap, Computer } from 'lucide-react';
+import { Code, Bot, Brain, Search, Zap, Computer } from 'lucide-react';
 
 interface Feature {
   icon: React.ElementType;
@@ -19,7 +19,7 @@ const features: Feature[] = [
     bgColor: 'bg-ai-purple/10',
   },
   {
-    icon: Robot,
+    icon: Bot,
     title: 'Intelligent Automation',
     description: 'Smart systems that automate complex workflows while continuously improving performance.',
     color: 'text-ai-blue',
