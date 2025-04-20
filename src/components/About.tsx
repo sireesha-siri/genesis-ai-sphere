@@ -56,11 +56,11 @@ const About = () => {
           {/* Card 1 */}
           <div 
             ref={(el) => (elementsRef.current[1] = el)}
-            className="reveal glass-card rounded-xl p-8 relative overflow-hidden group"
+            className="reveal glass-card rounded-xl p-8 relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] hover:bg-black/40"
           >
             <div className="absolute -right-10 -top-10 w-40 h-40 bg-ai-purple/10 rounded-full blur-2xl transition-transform duration-700 group-hover:scale-150"></div>
             <div className="relative z-10">
-              <div className="w-16 h-16 rounded-lg bg-ai-purple/20 flex items-center justify-center mb-6">
+              <div className="w-16 h-16 rounded-lg bg-ai-purple/20 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110">
                 <Brain className="w-8 h-8 text-ai-purple" />
               </div>
               <h3 className="text-xl font-bold mb-4">Neural Networks</h3>
@@ -73,12 +73,12 @@ const About = () => {
           {/* Card 2 */}
           <div 
             ref={(el) => (elementsRef.current[2] = el)}
-            className="reveal glass-card rounded-xl p-8 relative overflow-hidden group"
+            className="reveal glass-card rounded-xl p-8 relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:bg-black/40"
             style={{ animationDelay: '0.2s' }}
           >
             <div className="absolute -right-10 -top-10 w-40 h-40 bg-ai-blue/10 rounded-full blur-2xl transition-transform duration-700 group-hover:scale-150"></div>
             <div className="relative z-10">
-              <div className="w-16 h-16 rounded-lg bg-ai-blue/20 flex items-center justify-center mb-6">
+              <div className="w-16 h-16 rounded-lg bg-ai-blue/20 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110">
                 <Zap className="w-8 h-8 text-ai-blue" />
               </div>
               <h3 className="text-xl font-bold mb-4">Machine Learning</h3>
@@ -91,12 +91,12 @@ const About = () => {
           {/* Card 3 */}
           <div 
             ref={(el) => (elementsRef.current[3] = el)}
-            className="reveal glass-card rounded-xl p-8 relative overflow-hidden group"
+            className="reveal glass-card rounded-xl p-8 relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.3)] hover:bg-black/40"
             style={{ animationDelay: '0.4s' }}
           >
             <div className="absolute -right-10 -top-10 w-40 h-40 bg-ai-cyan/10 rounded-full blur-2xl transition-transform duration-700 group-hover:scale-150"></div>
             <div className="relative z-10">
-              <div className="w-16 h-16 rounded-lg bg-ai-cyan/20 flex items-center justify-center mb-6">
+              <div className="w-16 h-16 rounded-lg bg-ai-cyan/20 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110">
                 <Rocket className="w-8 h-8 text-ai-cyan" />
               </div>
               <h3 className="text-xl font-bold mb-4">Future Technology</h3>

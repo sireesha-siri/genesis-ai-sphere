@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, Moon, Sun } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 interface NavLink {
@@ -18,23 +18,6 @@ const navLinks: NavLink[] = [
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDarkTheme, setIsDarkTheme] = useState(true);
-
-  // Initialize theme from localStorage on component mount
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme) {
-      setIsDarkTheme(savedTheme === 'dark');
-      document.body.classList.toggle('dark', savedTheme === 'dark');
-      document.body.classList.toggle('light', savedTheme === 'light');
-    } else {
-      setIsDarkTheme(prefersDark);
-      document.body.classList.toggle('dark', prefersDark);
-      document.body.classList.toggle('light', !prefersDark);
-    }
-  }, []);
 
   // Detect scroll position to change navbar style
   useEffect(() => {
@@ -44,22 +27,6 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Toggle between dark and light theme with localStorage persistence
-  const toggleTheme = () => {
-    const newTheme = !isDarkTheme;
-    setIsDarkTheme(newTheme);
-    
-    if (newTheme) {
-      document.body.classList.add('dark');
-      document.body.classList.remove('light');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.body.classList.add('light');
-      document.body.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  };
 
   return (
     <nav 
@@ -89,28 +56,10 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-            <Button 
-              size="icon" 
-              variant="ghost" 
-              onClick={toggleTheme}
-              className="rounded-full transition-all duration-300"
-              aria-label={isDarkTheme ? "Switch to light mode" : "Switch to dark mode"}
-            >
-              {isDarkTheme ? <Sun size={20} className="text-yellow-300" /> : <Moon size={20} className="text-blue-400" />}
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center space-x-4 md:hidden">
-            <Button 
-              size="icon" 
-              variant="ghost" 
-              onClick={toggleTheme}
-              className="rounded-full"
-              aria-label={isDarkTheme ? "Switch to light mode" : "Switch to dark mode"}
-            >
-              {isDarkTheme ? <Sun size={20} className="text-yellow-300" /> : <Moon size={20} className="text-blue-400" />}
-            </Button>
+          <div className="md:hidden">
             <Button 
               size="icon" 
               variant="ghost" 
