@@ -20,6 +20,22 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDarkTheme, setIsDarkTheme] = useState(true);
 
+  // Initialize theme from localStorage on component mount
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme) {
+      setIsDarkTheme(savedTheme === 'dark');
+      document.body.classList.toggle('dark', savedTheme === 'dark');
+      document.body.classList.toggle('light', savedTheme === 'light');
+    } else {
+      setIsDarkTheme(prefersDark);
+      document.body.classList.toggle('dark', prefersDark);
+      document.body.classList.toggle('light', !prefersDark);
+    }
+  }, []);
+
   // Detect scroll position to change navbar style
   useEffect(() => {
     const handleScroll = () => {
@@ -29,7 +45,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Toggle between dark and light theme
+  // Toggle between dark and light theme with localStorage persistence
   const toggleTheme = () => {
     const newTheme = !isDarkTheme;
     setIsDarkTheme(newTheme);
@@ -37,9 +53,11 @@ const Navbar = () => {
     if (newTheme) {
       document.body.classList.add('dark');
       document.body.classList.remove('light');
+      localStorage.setItem('theme', 'dark');
     } else {
       document.body.classList.add('light');
       document.body.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
   };
 
@@ -75,9 +93,10 @@ const Navbar = () => {
               size="icon" 
               variant="ghost" 
               onClick={toggleTheme}
-              className="rounded-full"
+              className="rounded-full transition-all duration-300"
+              aria-label={isDarkTheme ? "Switch to light mode" : "Switch to dark mode"}
             >
-              {isDarkTheme ? <Sun size={20} /> : <Moon size={20} />}
+              {isDarkTheme ? <Sun size={20} className="text-yellow-300" /> : <Moon size={20} className="text-blue-400" />}
             </Button>
           </div>
 
@@ -88,14 +107,16 @@ const Navbar = () => {
               variant="ghost" 
               onClick={toggleTheme}
               className="rounded-full"
+              aria-label={isDarkTheme ? "Switch to light mode" : "Switch to dark mode"}
             >
-              {isDarkTheme ? <Sun size={20} /> : <Moon size={20} />}
+              {isDarkTheme ? <Sun size={20} className="text-yellow-300" /> : <Moon size={20} className="text-blue-400" />}
             </Button>
             <Button 
               size="icon" 
               variant="ghost" 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-white"
+              aria-label="Toggle mobile menu"
             >
               <Menu />
             </Button>

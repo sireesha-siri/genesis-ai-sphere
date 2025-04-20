@@ -2,9 +2,12 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { useNavigate } from 'react-router-dom';
+import { toast } from "@/components/ui/use-toast";
 
 const Hero = () => {
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +18,28 @@ const Hero = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleGetStarted = () => {
+    // Navigate to features section with smooth scrolling
+    const featuresSection = document.getElementById('features');
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    // Show toast notification
+    toast({
+      title: "Welcome to Genesis AI",
+      description: "Explore our cutting-edge AI technologies",
+      duration: 3000,
+    });
+  };
+
+  const handleLearnMore = () => {
+    // Navigate to about section with smooth scrolling
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section 
@@ -47,11 +72,18 @@ const Hero = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fadeIn animate-delay-400">
-          <Button className="glow-on-hover px-8 py-6 text-lg rounded-full bg-ai-purple hover:bg-ai-purple/90 text-white">
+          <Button 
+            className="glow-on-hover px-8 py-6 text-lg rounded-full bg-ai-purple hover:bg-ai-purple/90 text-white transform transition-all duration-300 hover:scale-105 active:scale-95"
+            onClick={handleGetStarted}
+          >
             Get Started
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
-          <Button variant="outline" className="px-8 py-6 text-lg rounded-full border-white/20 text-white hover:bg-white/10">
+          <Button 
+            variant="outline" 
+            className="px-8 py-6 text-lg rounded-full border-white/20 text-white hover:bg-white/10 transform transition-all duration-300 hover:scale-105 active:scale-95"
+            onClick={handleLearnMore}
+          >
             Learn More
           </Button>
         </div>

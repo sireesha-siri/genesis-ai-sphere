@@ -1,6 +1,7 @@
 
 import { useRef, useEffect } from 'react';
 import { Code, Bot, Brain, Search, Zap, Computer } from 'lucide-react';
+import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
 
 interface Feature {
   icon: React.ElementType;
@@ -8,6 +9,7 @@ interface Feature {
   description: string;
   color: string;
   bgColor: string;
+  extendedDescription?: string;
 }
 
 const features: Feature[] = [
@@ -17,6 +19,7 @@ const features: Feature[] = [
     description: 'Advanced neural networks that learn from vast datasets to recognize patterns and make predictions.',
     color: 'text-ai-purple',
     bgColor: 'bg-ai-purple/10',
+    extendedDescription: 'Our deep learning models achieve state-of-the-art performance across various domains including computer vision, natural language processing, and reinforcement learning.',
   },
   {
     icon: Bot,
@@ -24,6 +27,7 @@ const features: Feature[] = [
     description: 'Smart systems that automate complex workflows while continuously improving performance.',
     color: 'text-ai-blue',
     bgColor: 'bg-ai-blue/10',
+    extendedDescription: 'From robotic process automation to intelligent decision systems, our solutions streamline operations and reduce manual intervention across industries.',
   },
   {
     icon: Code,
@@ -31,6 +35,7 @@ const features: Feature[] = [
     description: 'Sophisticated algorithms that understand, interpret, and generate human language.',
     color: 'text-ai-cyan',
     bgColor: 'bg-ai-cyan/10',
+    extendedDescription: 'Our NLP models can analyze sentiment, extract entities, summarize text, and even generate human-like responses in multiple languages.',
   },
   {
     icon: Search,
@@ -38,6 +43,7 @@ const features: Feature[] = [
     description: 'Forecast future trends and outcomes based on historical data and pattern recognition.',
     color: 'text-ai-green',
     bgColor: 'bg-ai-green/10',
+    extendedDescription: 'By combining machine learning with statistical analysis, our predictive models help businesses anticipate market changes and customer behavior.',
   },
   {
     icon: Computer,
@@ -45,6 +51,7 @@ const features: Feature[] = [
     description: 'AI systems that can analyze, understand and process visual information like humans.',
     color: 'text-ai-purple',
     bgColor: 'bg-ai-purple/10',
+    extendedDescription: 'From facial recognition to object detection and scene understanding, our computer vision systems bring visual intelligence to applications.',
   },
   {
     icon: Zap,
@@ -52,6 +59,7 @@ const features: Feature[] = [
     description: 'Lightning-fast data analysis and decision-making capabilities for time-critical applications.',
     color: 'text-ai-blue',
     bgColor: 'bg-ai-blue/10',
+    extendedDescription: 'Our optimized algorithms and specialized hardware acceleration enable millisecond-level responses for applications where timing is critical.',
   },
 ];
 
@@ -107,18 +115,32 @@ const Features = () => {
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <div
-                key={feature.title}
-                ref={(el) => (featuresRef.current[index + 1] = el)}
-                className="reveal glass-card rounded-xl p-6 transition-all duration-300 hover:translate-y-[-5px] hover:shadow-xl"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className={`w-14 h-14 rounded-lg ${feature.bgColor} flex items-center justify-center mb-5`}>
-                  <Icon className={`w-7 h-7 ${feature.color}`} />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                <p className="text-gray-400">{feature.description}</p>
-              </div>
+              <HoverCard key={feature.title} openDelay={200} closeDelay={100}>
+                <HoverCardTrigger asChild>
+                  <div
+                    ref={(el) => (featuresRef.current[index + 1] = el)}
+                    className="reveal glass-card rounded-xl p-6 transition-all duration-300 hover:translate-y-[-8px] hover:shadow-[0_10px_40px_-15px_rgba(139,92,246,0.5)] cursor-pointer hover:bg-black/40 border border-white/5 hover:border-white/20"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <div className={`w-14 h-14 rounded-lg ${feature.bgColor} flex items-center justify-center mb-5 transition-transform group-hover:scale-110`}>
+                      <Icon className={`w-7 h-7 ${feature.color}`} />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
+                    <p className="text-gray-400">{feature.description}</p>
+                  </div>
+                </HoverCardTrigger>
+                <HoverCardContent className="glass-card border border-white/10 bg-black/80 backdrop-blur-xl text-white w-80">
+                  <div className="flex justify-between space-x-4">
+                    <div className={`w-12 h-12 rounded-lg ${feature.bgColor} flex items-center justify-center`}>
+                      <Icon className={`w-6 h-6 ${feature.color}`} />
+                    </div>
+                    <div className="space-y-1">
+                      <h4 className="text-sm font-semibold">{feature.title}</h4>
+                      <p className="text-xs text-gray-300">{feature.extendedDescription}</p>
+                    </div>
+                  </div>
+                </HoverCardContent>
+              </HoverCard>
             );
           })}
         </div>
