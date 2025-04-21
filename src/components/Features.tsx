@@ -93,9 +93,10 @@ const Features = () => {
       ref={sectionRef}
       className="py-24 bg-gradient-to-b from-background/95 to-background relative overflow-hidden"
     >
-      {/* Decorative elements */}
-      <div className="absolute -left-40 top-20 w-80 h-80 rounded-full bg-ai-purple/5 blur-3xl"></div>
-      <div className="absolute -right-40 bottom-40 w-80 h-80 rounded-full bg-ai-blue/5 blur-3xl"></div>
+        {/* Decorative elements */}
+        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-ai-purple/50 to-transparent"></div>
+      <div className="absolute -left-40 top-40 w-80 h-80 rounded-full bg-ai-purple/5 blur-3xl"></div>
+      <div className="absolute -right-40 bottom-20 w-80 h-80 rounded-full bg-ai-cyan/5 blur-3xl"></div>
 
       <div className="container mx-auto px-6">
         <div 
