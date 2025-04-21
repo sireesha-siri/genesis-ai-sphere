@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="flex flex-col items-center">
           {/* Logo */}
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-gradient">Genesis AI</h2>
+            <h2 className="text-2xl font-bold text-gradient">Siri Neura</h2>
           </div>
           
           {/* Navigation */}
@@ -49,7 +49,7 @@ const Footer = () => {
           
           {/* Copyright */}
           <div className="text-center text-gray-500 text-sm">
-            <p>© {currentYear} Genesis AI. All rights reserved.</p>
+            <p>© {currentYear} Siri Neura. All rights reserved.</p>
             <p className="mt-2">
               <a href="#" className="hover:text-gray-400 transition-colors">Privacy Policy</a>
               {' '}•{' '}
