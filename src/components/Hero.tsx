@@ -92,7 +92,7 @@ const Hero = () => {
       ></div>
 
       <div 
-        className="container mx-auto px-6 pt-32 pb-20 relative z-10 text-center"
+        className="container mx-auto px-6 pt-32 pb-40 relative z-10 text-center"
         style={{ 
           transform: `translateY(${scrollProgress * 50}px)`,
           opacity: 1 - scrollProgress,
@@ -145,10 +145,10 @@ const Hero = () => {
       </div>
 
       <div 
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-pulse transition-opacity duration-300 mt-10"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-pulse transition-opacity duration-300"
         style={{ opacity: 1 - scrollProgress * 2 }}
       >
-        <div className="w-8 h-12 rounded-full border-2 border-white/30 flex justify-center mt-8">
+        <div className="w-8 h-12 rounded-full border-2 border-white/30 flex justify-center">
           <div className="w-1 h-3 bg-white/80 rounded-full mt-2 animate-[float_1.5s_ease-in-out_infinite]"></div>
         </div>
       </div>
