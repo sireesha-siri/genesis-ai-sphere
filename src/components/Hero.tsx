@@ -148,7 +148,7 @@ const Hero = () => {
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-pulse transition-opacity duration-300"
         style={{ opacity: 1 - scrollProgress * 2 }}
       >
-        <div className="w-8 h-12 rounded-full border-2 border-white/30 flex justify-center">
+        <div className="w-8 h-12 rounded-full border-2 border-white/30 flex justify-center mt-5">
           <div className="w-1 h-3 bg-white/80 rounded-full mt-2 animate-[float_1.5s_ease-in-out_infinite]"></div>
         </div>
       </div>
