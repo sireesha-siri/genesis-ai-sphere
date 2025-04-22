@@ -52,7 +52,7 @@ const AnimatedCursor = () => {
                     target.tagName.toLowerCase() === 'button' ||
                     target.closest('a') || 
                     target.closest('button');
-      setLinkHovered(isLink);
+      setLinkHovered(!!isLink); // Fixed: Convert to boolean with !!
     };
 
     addEventListeners();
@@ -63,7 +63,7 @@ const AnimatedCursor = () => {
 
   return (
     <>
-      <style jsx global>{`
+      <style>{`
         body {
           cursor: none;
         }
