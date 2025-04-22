@@ -8,7 +8,8 @@ const projects = [
   {
     id: 1,
     title: 'Neural Network Visualization',
-    image: 'https://images.unsplash.com/photo-1677442135136-760c813460dc?q=80&w=1932&auto=format&fit=crop',
+    // Swapped with a guaranteed Unsplash placeholder image
+    image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 2,
