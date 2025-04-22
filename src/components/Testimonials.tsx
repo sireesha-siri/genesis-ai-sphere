@@ -47,7 +47,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="h-full bg-transparent shadow-md rounded-lg border border-white/10 transition-all duration-300"
+      className="h-full bg-transparent shadow-md rounded-tr-2xl rounded-bl-2xl border border-white/10 transition-all duration-300"
       style={{
         transform: `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
         transition: 'transform 0.3s, background-color 0.3s, box-shadow 0.3s, border-color 0.3s'

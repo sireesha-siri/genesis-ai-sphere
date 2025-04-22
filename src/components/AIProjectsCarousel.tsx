@@ -90,7 +90,7 @@ const AIProjectsCarousel = () => {
           <Slider {...settings}>
             {projects.map((project) => (
               <div key={project.id} className="px-3">
-                <div className="overflow-hidden rounded-xl transition-all duration-300 
+                <div className="overflow-hidden rounded-3xl transition-all duration-300 
                   hover:shadow-xl shadow-md shadow-primary/20 hover:shadow-primary/40 glass-enhanced">
                   <div className="relative aspect-[16/9]">
                     <img

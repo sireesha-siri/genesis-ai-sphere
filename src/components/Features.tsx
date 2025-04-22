@@ -1,4 +1,3 @@
-
 import { useRef, useEffect } from 'react';
 import { Code, Bot, Brain, Search, Zap, Computer } from 'lucide-react';
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
@@ -120,7 +119,7 @@ const Features = () => {
                 <HoverCardTrigger asChild>
                   <div
                     ref={(el) => (featuresRef.current[index + 1] = el)}
-                    className={`reveal glass-enhanced rounded-xl p-6 transition-all duration-300 hover-card-effect cursor-pointer border border-white/5 hover:border-white/20 ${
+                    className={`reveal glass-enhanced rounded-t-lg p-6 transition-all duration-300 hover-card-effect cursor-pointer border border-white/5 hover:border-white/20 ${
                       index % 2 === 0 ? 'animate-slideInLeft' : 'animate-slideInRight'
                     }`}
                     style={{ animationDelay: `${index * 0.1}s` }}
