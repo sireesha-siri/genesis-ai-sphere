@@ -49,7 +49,10 @@ const Navbar = () => {
                 <li key={link.text}>
                   <a 
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors duration-300 font-rajdhani text-lg tracking-wide"
+                    className="text-gray-300 hover:text-white transition-colors duration-300 font-rajdhani text-lg tracking-wide relative 
+                      after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-white 
+                      after:scale-x-0 after:origin-right after:transition-transform after:duration-300 
+                      hover:after:scale-x-100 hover:after:origin-left"
                   >
                     {link.text}
                   </a>
@@ -80,7 +83,10 @@ const Navbar = () => {
                 <li key={link.text}>
                   <a 
                     href={link.href}
-                    className="block px-4 py-3 text-gray-300 hover:text-white transition-colors duration-300 font-rajdhani text-lg tracking-wide"
+                    className="block px-4 py-3 text-gray-300 hover:text-white transition-colors duration-300 font-rajdhani text-lg tracking-wide relative 
+                      after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-white 
+                      after:scale-x-0 after:origin-right after:transition-transform after:duration-300 
+                      hover:after:scale-x-100 hover:after:origin-left"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.text}
