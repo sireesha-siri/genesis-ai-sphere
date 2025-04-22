@@ -4,9 +4,12 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Features from '@/components/Features';
+import AIProjectsCarousel from '@/components/AIProjectsCarousel';
+import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import ScrollReveal from '@/components/ScrollReveal';
+import AnimatedCursor from '@/components/AnimatedCursor';
 
 const Index = () => {
   // Add smooth scrolling behavior when clicking on anchor links
@@ -36,10 +39,13 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <AnimatedCursor />
       <Navbar />
       <Hero />
       <About />
       <Features />
+      <AIProjectsCarousel />
+      <Testimonials />
       <Contact />
       <Footer />
       <ScrollReveal />
