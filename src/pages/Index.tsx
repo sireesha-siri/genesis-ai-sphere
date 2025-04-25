@@ -10,6 +10,7 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import ScrollReveal from '@/components/ScrollReveal';
 import AnimatedCursor from '@/components/AnimatedCursor';
+import Chat from '@/components/chat/Chat';
 
 const Index = () => {
   // Add smooth scrolling behavior when clicking on anchor links
@@ -49,6 +50,7 @@ const Index = () => {
       <Contact />
       <Footer />
       <ScrollReveal />
+      <Chat />
     </div>
   );
 };
